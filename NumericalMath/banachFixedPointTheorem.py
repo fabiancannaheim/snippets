@@ -20,3 +20,7 @@ def banach(F,dF,a,b):
     print("Contractive: ", contractive)
     print("α = ", alpha)
     return selfImaging, contractive, alpha
+
+# def f(x): return x**2
+# def dF(x): return 2*x
+# banach(f, dF, 0, 5);
