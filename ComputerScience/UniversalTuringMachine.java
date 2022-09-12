@@ -22,6 +22,7 @@ import java.util.List;
  * # Delimiter between different transition parts: 1
  * # Delimiter between different transitions: 11
  * # Delimiter between encoded turing machine and machine input: 111
+ * e.g. δ(q1,1) = (q3,0,R) <=> 0100100010100
  */
 public class UniversalTuringMachine {
 
