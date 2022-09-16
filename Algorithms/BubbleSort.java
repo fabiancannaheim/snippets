@@ -1,6 +1,8 @@
 
 package Algorithms;
 
+import java.util.Arrays;
+
 /**
  * Bubble sort belongs to the simple and stable
  * sorting algorithms. An array / list is always
@@ -37,20 +39,9 @@ public class BubbleSort {
     }
 
     public static void main(String[] args) {
-        int[] array = new int[9];
-        array[0] = 9;
-        array[1] = 5;
-        array[2] = 3;
-        array[3] = 8;
-        array[4] = 6;
-        array[5] = 1;
-        array[6] = 2;
-        array[7] = 7;
-        array[8] = 7;
+        int[] array = { 9, 5, 3, 8, 6, 1, 2, 7, 7 };
         BubbleSort.run(array);
-        for (int i : array) {
-            System.out.println(i);
-        }
+        System.out.println(Arrays.toString(array));
     }
 
 }
