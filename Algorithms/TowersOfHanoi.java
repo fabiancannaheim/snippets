@@ -27,19 +27,19 @@ public class TowersOfHanoi {
     private static String moveDisk(char a, char b, char c, int n) {
         String result;
         if (n == 1) {
-            result = "Place the top disk of tower " + a + " on tower " + c + ".\n";
+            result = a + " => " + c + "\n";
         } else {
-            result = moveDisk('a', 'c', 'b', n - 1);
-            result += moveDisk('a', 'b', 'c', 1);
-            result += moveDisk('b', 'a', 'c', n - 1);
+            result = moveDisk('A', 'C', 'B', n - 1);
+            result += moveDisk('A', 'B', 'C', 1);
+            result += moveDisk('B', 'A', 'C', n - 1);
         }
         return result;
     }
 
     public static void main(String[] args) {
         int depth = 3;
-        String solution = "Move " + depth + " disks from tower a to tower c\n";
-        System.out.println(solution + TowersOfHanoi.moveDisk('a', 'b', 'c', depth));
+        String solution = "\nMove " + depth + " disks from tower A to tower C:\n\n";
+        System.out.println(solution + TowersOfHanoi.moveDisk('A', 'B', 'C', depth));
     }
 
 }
