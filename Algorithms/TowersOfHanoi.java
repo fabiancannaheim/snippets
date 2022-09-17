@@ -24,14 +24,14 @@ package Algorithms;
  */
 public class TowersOfHanoi {
 
-    private static String moveDisk(char a, char b, char c, int n) {
+    private static String move(char a, char b, char c, int n) {
         String result;
         if (n == 1) {
             result = a + " => " + c + "\n";
         } else {
-            result = moveDisk('A', 'C', 'B', n - 1);
-            result += moveDisk('A', 'B', 'C', 1);
-            result += moveDisk('B', 'A', 'C', n - 1);
+            result = move('A', 'C', 'B', n - 1);
+            result += move('A', 'B', 'C', 1);
+            result += move('B', 'A', 'C', n - 1);
         }
         return result;
     }
@@ -39,7 +39,7 @@ public class TowersOfHanoi {
     public static void main(String[] args) {
         int depth = 3;
         String solution = "\nMove " + depth + " disks from tower A to tower C:\n\n";
-        System.out.println(solution + TowersOfHanoi.moveDisk('A', 'B', 'C', depth));
+        System.out.println(solution + TowersOfHanoi.move('A', 'B', 'C', depth));
     }
 
 }
