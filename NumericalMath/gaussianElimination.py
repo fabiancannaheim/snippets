@@ -1,7 +1,12 @@
-# -*- coding: utf-8 -*-
 """
-Created on Tue Sep 20 18:44:35 2022
 @author: Fabian C. Annaheim
+@description: The Gaussian elimination method or simply Gaussian method is 
+an algorithm from the mathematical subfields of linear algebra and numerics. 
+It is an important method for solving systems of linear equations and is based 
+on the fact that equivalence transformations change the system of equations 
+but preserve the solution. This allows any uniquely solvable system of equations 
+to be put into step form, from which the solution can be easily determined by 
+successive elimination of the unknowns, or the solution set can be read off.
 """
 
 import numpy as np
