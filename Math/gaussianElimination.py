@@ -11,7 +11,7 @@ successive elimination of the unknowns, or the solution set can be read off.
 
 import numpy as np
 
-def gauss_elimination(A,b):
+def gaussElimination(A,b):
 
     A = np.copy(A)
     b = np.copy(b)
@@ -47,3 +47,9 @@ def subtract(A,b,j,i,c):
     A[j,:] = A[j,:] - c * A[i,:]
     b[j] = b[j] - c * b[i]
     return A, b
+
+#A = np.array([[-1,1,1],[1,-3,-2],[5,1,4]])
+#b = np.array([0.0,5.0,3.0])
+#A,b = gaussElimination(A,b)
+#print(A)
+#print(b)
