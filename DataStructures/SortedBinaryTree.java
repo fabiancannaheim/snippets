@@ -1,5 +1,8 @@
 package DataStructures;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class SortedBinaryTree<T extends Comparable<T>> {
 
     class Node<N extends Comparable<N>> {
@@ -21,6 +24,91 @@ public class SortedBinaryTree<T extends Comparable<T>> {
 
         public N getValue() {
             return this.value;
+        }
+
+    }
+
+    class Traversal<R extends Comparable<R>> {
+
+        private Node<R> root;
+
+        public Traversal(Node<R> root) {
+            this.root = root;
+        }
+
+        public void inorder() {
+            inorder(this.root);
+        }
+
+        public void preorder() {
+            preorder(this.root);
+        }
+
+        public void postorder() {
+            postorder(this.root);
+        }
+
+        public void levelorder() {
+            levelorder(this.root);
+        }
+
+        public void interval(R min, R max) {
+            interval(this.root, min, max);
+        }
+
+        private void inorder(Node<R> node) {
+            if (node != null) {
+                inorder(node.left);
+                System.out.println(node.getValue());
+                inorder(node.right);
+            }
+        }
+
+        private void preorder(Node<R> node) {
+            if (node != null) {
+                System.out.println(node.getValue());
+                preorder(node.left);
+                preorder(node.right);
+            }
+        }
+
+        private void postorder(Node<R> node) {
+            if (node != null) {
+                postorder(node.left);
+                postorder(node.right);
+                System.out.println(node.getValue());
+            }
+        }
+
+        private void levelorder(Node<R> node) {
+            Queue<Node<R>> queue = new LinkedList<Node<R>>();
+            if (node != null) {
+                queue.add(node);
+            }
+            while (!queue.isEmpty()) {
+                node = queue.remove();
+                System.out.println(node.getValue());
+                if (node.left != null) {
+                    queue.add(node.left);
+                }
+                if (node.right != null) {
+                    queue.add(node.right);
+                }
+            }
+        }
+
+        private void interval(Node<R> node, R min, R max) {
+            if (node != null) {
+                if (0 > node.getValue().compareTo(min)) {
+                    interval(node.right, min, max);
+                } else if (0 < node.getValue().compareTo(max)) {
+                    interval(node.left, min, max);
+                } else {
+                    System.out.println(node.getValue());
+                    interval(node.left, min, max);
+                    interval(node.right, min, max);
+                }
+            }
         }
 
     }
@@ -47,6 +135,10 @@ public class SortedBinaryTree<T extends Comparable<T>> {
 
     public boolean isEmpty() {
         return this.root == null;
+    }
+
+    public Traversal<T> traversal() {
+        return new Traversal<T>(this.root);
     }
 
     public String toString() {
@@ -152,5 +244,7 @@ public class SortedBinaryTree<T extends Comparable<T>> {
         tree.add(9);
         tree.add(11);
         System.out.println(tree.toString());
+        SortedBinaryTree<Integer>.Traversal<Integer> traversal = tree.traversal();
+        traversal.inorder();
     }
 }
